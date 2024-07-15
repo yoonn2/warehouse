@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Controller
@@ -56,10 +57,10 @@ public class MainController {
     public String salesPage(Model model) {
         List<SalesDto> list = service.getSales();
         int tot_cnt = service.getTotCnt();
-        int tot_outcost = service.sumTotOutCost() * tot_cnt;
+        Map<String, Object> total = service.sumTotOutCost();
         model.addAttribute("list", list);
-        model.addAttribute("tot_cnt", tot_cnt);
-        model.addAttribute("tot_outcost", tot_outcost);
+        model.addAttribute("tot_cnt", total.get("tot_cnt"));
+        model.addAttribute("tot_outcost",total.get("tot_outcost"));
         return "sales";
     }
 

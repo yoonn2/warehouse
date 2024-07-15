@@ -1,4 +1,4 @@
-<html layout:decorate="~{layout}">
+<html layout:decorate="~{layout}" xmlns:th="http://www.thymeleaf.org">
     <div layout:fragment="content" id="contents">
         <meta charset="UTF-8">
         <link href="../css/style.css" rel="stylesheet">
@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <td class="align-center" colspan=2>합계</td>
-                    <td class="align-right" th:text="${#tot_cnt}"></td>
+                    <td class="align-center" th:text="${tot_cnt}"></td>
                     <td class="align-right" th:text="'&#92; ' + ${#numbers.formatInteger(tot_outcost, 1, 'COMMA')}"></td>
                 </tr>
             </table>

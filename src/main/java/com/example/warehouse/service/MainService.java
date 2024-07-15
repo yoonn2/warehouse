@@ -9,11 +9,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class MainService {
     private final MainDao dao;
+
     public List<ProductDto> getProduct() {
         return dao.selectProductTb1();
     }
@@ -39,8 +41,9 @@ public class MainService {
     }
 
     public List<DetailDto> getInoutDetail() {
-       return dao.selectInoutDetail();
+        return dao.selectInoutDetail();
     }
+
     public List<SalesDto> getSales() {
         return dao.selectSales();
     }
@@ -50,7 +53,9 @@ public class MainService {
         return dao.sumTotCnt();
     }
 
-    public int sumTotOutCost() {
+    public Map<String, Object> sumTotOutCost() {
         return dao.sumTotOutCost();
     }
 }
+
+
